@@ -16,7 +16,7 @@ Example Usage
     
     $ qtcwizard install
     
-    # Launch Qt Creator, choose  File > New File or Project.
+    # Launch Qt Creator, choose  File > New File or Project > Application > Example Project.
     
 ```
 
