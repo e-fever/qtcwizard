@@ -1,0 +1,22 @@
+{
+  "name": "qtcwizard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -f rule.json; rm -f wizard.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canonical-path": "0.0.2",
+    "commander": "^2.11.0",
+    "optimist": "0.6.1",
+    "shelljs": "^0.7.7",
+    "uuid": "^3.1.0"
+  },
+  "bin": {
+    "qtcwizard": "./qtcwizard.js"
+  }
+}
