@@ -20,6 +20,10 @@ Example Usage
     
 ```
 
+Example Project
+
+[junkcode/qtcwizard-project/project1 at master · benlau/junkcode](https://github.com/benlau/junkcode/tree/master/qtcwizard-project/project1)
+
 Installation
 ------------
 
@@ -50,6 +54,8 @@ $ qtcwizard
     generate <output>  generate Qt Creator Wizard Project to the output folder
     install            install this wizard to the Qt Creator
 ```
+
+Remarks: `qtcwizard install` only works in Linux/Mac at this moment.
 
 Customization
 ==============
