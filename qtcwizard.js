@@ -11,7 +11,7 @@ program
 
 program
     .command('init')
-    .description("create default rule.json and wizard.json")
+    .description("create default generator.json and wizard.json")
     .action(function(cmd,options) {
         init(shell.pwd().toString());
     });

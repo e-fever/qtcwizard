@@ -50,7 +50,7 @@ $ qtcwizard
 
   Commands:
 
-    init               create default rule.json and wizard.json
+    init               create default generator.json and wizard.json
     generate <output>  generate Qt Creator Wizard Project to the output folder
     install            install this wizard to the Qt Creator
 ```
