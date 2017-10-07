@@ -13,7 +13,7 @@ function run(input, output) {
 
     var generator = JSON.parse(shell.cat(generatorFile));
     
-    var defaultIgnorePattern = ["generator.json"];
+    var defaultIgnorePattern = ["generator.json" , "wizard.json"];
     generator.ignoreFilePattern = generator.ignoreFilePattern ? generator.ignoreFilePattern.concat(defaultIgnorePattern) : defaultIgnorePattern
     
     if (!shell.test("-f", input + "/wizard.json")) {
@@ -92,7 +92,7 @@ function run(input, output) {
         return res;
     });
 
-    var wizardFilePath = path.resolve(output, "wizard.json");
+    var wizardFilePath = path.resolve(input, "wizard.json");
     var content = shell.cat(wizardFilePath);
     var wizard = JSON.parse(content);
 
@@ -103,7 +103,7 @@ function run(input, output) {
         }
     ];
 
-    shell.ShellString(JSON.stringify(wizard,null,4)).to(wizardFilePath);
+    shell.ShellString(JSON.stringify(wizard,null,4)).to(path.resolve(output, "wizard.json"));
    
 }
 

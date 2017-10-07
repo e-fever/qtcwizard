@@ -14,7 +14,9 @@ Example Usage
     
     # Edit generator.json and wizard.json for customization
     
-    $ qtcwizard generate $output_path # Output path is the installation path of Qt Creator template
+    $ qtcwizard install
+    
+    # Launch Qt Creator, choose  File > New File or Project.
     
 ```
 
@@ -45,7 +47,8 @@ $ qtcwizard
   Commands:
 
     init               create default rule.json and wizard.json
-    generate <output>  generate Qt Creator Wizard Project folder
+    generate <output>  generate Qt Creator Wizard Project to the output folder
+    install            install this wizard to the Qt Creator
 ```
 
 Customization

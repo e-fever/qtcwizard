@@ -3,6 +3,7 @@ var program = require('commander');
 var init = require("./init.js");
 var shell = require('shelljs');
 var generate = require("./generate.js");
+const path = require('path');
 
 program
     .version('0.0.1')
@@ -17,11 +18,19 @@ program
 
 program
     .command("generate <output>")
-    .description("generate Qt Creator Wizard Project folder")
+    .description("generate Qt Creator Wizard Project to the output folder")
     .action(function(cmd, options) {
         generate(shell.pwd().toString(), cmd);
     });
 
+program
+    .command("install")
+    .description("install this wizard to the Qt Creator")
+    .action(function(cmd, options) {
+        var source = shell.pwd().toString();
+        var target = shell.env["HOME"] + "/.config/QtProject/qtcreator/templates/wizards/" +  path.basename(source)
+        generate(source, target);
+    });
 
 program.parse(process.argv);
 
