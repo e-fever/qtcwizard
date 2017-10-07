@@ -26,6 +26,28 @@ Installation
     npm install -g
 ```
 
+Commands
+========
+
+```
+$ qtcwizard
+
+  Usage: qtcwizard [options] [command]
+
+
+  Options:
+
+    -V, --version       output the version number
+    -C, --chdir <path>  change the working directory
+    -h, --help          output usage information
+
+
+  Commands:
+
+    init               create default rule.json and wizard.json
+    generate <output>  generate Qt Creator Wizard Project folder
+```
+
 Customization
 ==============
 
@@ -37,7 +59,7 @@ wizard.json
 
 generator.json
 --------------
-
+TODO
 
 ```
 {
