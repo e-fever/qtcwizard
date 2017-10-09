@@ -104,7 +104,7 @@ function run(input, output) {
     ];
 
     shell.ShellString(JSON.stringify(wizard,null,4)).to(path.resolve(output, "wizard.json"));
-   
+    console.log("Exported to " + output);
 }
 
 module.exports = run
