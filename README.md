@@ -22,7 +22,8 @@ Example Usage
 
 Example Project
 
-[junkcode/qtcwizard-project/project1 at master · benlau/junkcode](https://github.com/benlau/junkcode/tree/master/qtcwizard-project/project1)
+ 1. [junkcode/qt/templates/QPM Library Project at master · benlau/junkcode](https://github.com/benlau/junkcode/tree/master/qt/templates/QPM%20Library%20Project)
+ 1. [junkcode/qtcwizard-project/project1 at master · benlau/junkcode](https://github.com/benlau/junkcode/tree/master/qtcwizard-project/project1)
 
 Installation
 ------------
