@@ -7,7 +7,7 @@ Example Usage
 ------------
 
 ```
-    $ cd $existing_project
+    $ cd existing_project
     $ qtcwizard init
     generator.json created
     wizard.json created
@@ -63,23 +63,27 @@ Customization
 wizard.json
 -----------
 
-[Adding JSON-Based Wizards | Qt Creator Manual](http://doc.qt.io/qtcreator/creator-project-wizards-json.html)
+The wizard.json file contains sections that specify information about the wizard, variables that you can use, wizard pages, and generators for creating files. You have to input the required information by yourself except the `generators` property. It will be filled by qtcwizard automatically.
+
+Reference: [Adding JSON-Based Wizards | Qt Creator Manual](http://doc.qt.io/qtcreator/creator-project-wizards-json.html)
 
 
 generator.json
 --------------
-TODO
+
+The generator.json file describes what files should be to the installed, how to substitute its content. qtcwizard relies on that information to generate the content of `generators` property in the wizard.json file.
 
 ```
 {
-    "ignoreFilePattern": ["\\.swp$", "\\.DS_Store$"],
+    "ignoreFilePattern": ["\\.swp$", "\\.DS_Store$"], // Ignore those files. They will not be copied.
     "rules": [
         {
-            "pattern": "project1.pro", // Apply the rule if the file path match the pattern.
-            "path": [
+            "pattern": "project1.pro", // Apply the rule if the file path match the pattern (RegExp).
+            "path": [ // Substitute the path
                 {
                     "find": "project1.pro",
-                    "replace": "%{ProFileName}"
+                    "replace": "%{ProFileName}",
+                    "openAsProject": true // This file should be opened by Qt Creator upon creation
                 }
             ]
         },
@@ -87,8 +91,8 @@ TODO
             "pattern": ".*",
             "content": [ // Substitute the content
                 {
-                    "find": "\\\\",
-                    "replace": "\\\\"
+                    "find": "\\\\", // Find "\" (RegExp)
+                    "replace": "\\\\" // Replace by "\\"
                 }
             ]
         }
