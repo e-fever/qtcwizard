@@ -6,8 +6,8 @@ module.exports = {
             pattern: ".*",
             content: [
                 {
-                    "find": "\\", // RegExp - Find every "\"
-                    "replace": "\\" // Replace by "\\"
+                    "find": "\\\\", // RegExp - Find every "\"
+                    "replace": "\\\\" // Replace by "\\"
                 }
             ]
         },
