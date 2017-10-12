@@ -4,6 +4,7 @@ var init = require("./init.js");
 var shell = require('shelljs');
 var generate = require("./generate.js");
 const path = require('path');
+var prerequisite = require("./prerequisite.js");
 
 program
     .version('0.0.1')
@@ -28,7 +29,13 @@ program
     .description("install this wizard to the Qt Creator")
     .action(function(cmd, options) {
         var source = shell.pwd().toString();
-        var target = shell.env["HOME"] + "/.config/QtProject/qtcreator/templates/wizards/" +  path.basename(source)
+        if (!prerequisite(source)) {
+            return -1;
+        }
+    
+        var wizard = JSON.parse(shell.cat(source + "/wizard.json").toString());
+    
+        var target = shell.env["HOME"] + "/.config/QtProject/qtcreator/templates/wizards/" +  wizard.trDisplayName 
         generate(source, target);
     });
 

@@ -1,26 +1,21 @@
 var fs = require('fs');
 var shell = require('shelljs');
 const path = require('path');
+var prerequisite = require("./prerequisite.js");
 
 function run(input, output) {
-
-    var generatorFile = input + "/generator.json";
-
-    if (!shell.test("-f", generatorFile ) ){
-        console.log("generator.json not found. Please run `qtcwizard init` to create default generator.json");
+    
+    if (!prerequisite(input)) {
         return -1;
     }
+
+    var generatorFile = input + "/generator.json";
 
     var generator = JSON.parse(shell.cat(generatorFile));
     
     var defaultIgnorePattern = ["generator.json" , "wizard.json"];
     generator.ignoreFilePattern = generator.ignoreFilePattern ? generator.ignoreFilePattern.concat(defaultIgnorePattern) : defaultIgnorePattern
     
-    if (!shell.test("-f", input + "/wizard.json")) {
-        console.log("wizard.json not found. Please run `qtcwizard init` to create default generator.json");
-        return -1;        
-    }
-
     var files = shell.find(input).filter(function(file) {
         var name = path.basename(file);
         return !shell.test("-d", file) && name.toLocaleLowerCase !== "generator.json" 
