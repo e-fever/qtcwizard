@@ -5,6 +5,7 @@ var shell = require('shelljs');
 var generate = require("./generate.js");
 const path = require('path');
 var prerequisite = require("./prerequisite.js");
+var sanitize = require("sanitize-filename");
 
 program
     .version('0.0.1')
@@ -35,7 +36,7 @@ program
     
         var wizard = JSON.parse(shell.cat(source + "/wizard.json").toString());
     
-        var target = shell.env["HOME"] + "/.config/QtProject/qtcreator/templates/wizards/" +  wizard.trDisplayName 
+        var target = shell.env["HOME"] + "/.config/QtProject/qtcreator/templates/wizards/" +  sanitize(wizard.trDisplayName)
         generate(source, target);
     });
 

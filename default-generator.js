@@ -1,6 +1,12 @@
 module.exports = {
     /// The files to be ignored
-    ignoreFilePattern: ["\\.swp$", "\\.DS_Store$"],
+    ignoreFilePattern: [
+        "\\.swp$", 
+        "\\.DS_Store$", 
+        "\\.pro.user$",
+        "\\.qmlc$",
+        "\\.jsc$"
+    ],
     rules: [
         {
             pattern: ".*",
@@ -14,6 +20,6 @@ module.exports = {
         {
             pattern: "\\.pro$",
             openAsProject: true 
-        }        
+        }
     ]
 }
