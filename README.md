@@ -56,7 +56,6 @@ $ qtcwizard
     install            install this wizard to the Qt Creator
 ```
 
-Remarks: `qtcwizard install` only works in Linux/Mac at this moment.
 
 Customization
 ==============
