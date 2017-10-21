@@ -9,6 +9,7 @@ Project {
             name: "all"
             files: "**"
             qbs.install: true
+            qbs.installSourceBase: "."
             qbs.installRoot: Environment.getEnv("HOME") + "/.config/QtProject/qtcreator/templates/wizards/" 
         }    
     }

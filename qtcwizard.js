@@ -57,11 +57,15 @@ program
 
         function cp(src, dst) {
             var target = dst + "/" + path.basename(src)
-            shell.cp(src, target);
+            var content = shell.cat(src).toString();
+            content = content.replace(new RegExp("%WIZARD%","g"), projectName);
+            shell.ShellString(content).to(target);                                                  
             console.log("Created " + target);
         }
     
         cp(__dirname + "/template/qtcwizard.qbs", output);
+        cp(__dirname + "/template/README.md", output);
+
         generate(source, target);
     });
 
