@@ -40,6 +40,31 @@ program
         generate(source, target);
     });
 
+program
+    .command("pack-installer <output>")
+    .description("create a installable package")
+    .action(function(cmd, options) {
+        var source = shell.pwd().toString();
+        var output = cmd;
+
+        if (!prerequisite(source)) {
+            return -1;
+        }
+    
+        var wizard = JSON.parse(shell.cat(source + "/wizard.json").toString());
+        var projectName = sanitize(wizard.trDisplayName);
+        var target = output + "/" + projectName;
+
+        function cp(src, dst) {
+            var target = dst + "/" + path.basename(src)
+            shell.cp(src, target);
+            console.log("Created " + target);
+        }
+    
+        cp(__dirname + "/template/qtcwizard.qbs", output);
+        generate(source, target);
+    });
+
 program.parse(process.argv);
 
 if (!process.argv.slice(2).length) {
