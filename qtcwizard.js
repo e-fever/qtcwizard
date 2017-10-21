@@ -55,16 +55,22 @@ program
         var projectName = sanitize(wizard.trDisplayName);
         var target = output + "/" + projectName;
 
-        function cp(src, dst) {
+        function create(src, dst) {
             var target = dst + "/" + path.basename(src)
+            
+            if (shell.test("-f", target)){
+                console.log("Skip " + target);
+                return;
+            }
+            
             var content = shell.cat(src).toString();
             content = content.replace(new RegExp("%WIZARD%","g"), projectName);
             shell.ShellString(content).to(target);                                                  
             console.log("Created " + target);
         }
     
-        cp(__dirname + "/template/qtcwizard.qbs", output);
-        cp(__dirname + "/template/README.md", output);
+        create(__dirname + "/template/qtcwizard.qbs", output);
+        create(__dirname + "/template/README.md", output);
 
         generate(source, target);
     });
