@@ -6,6 +6,7 @@ var generate = require("./generate.js");
 const path = require('path');
 var prerequisite = require("./prerequisite.js");
 var sanitize = require("sanitize-filename");
+var os = require('os');
 
 program
     .version('0.0.1')
@@ -36,7 +37,12 @@ program
     
         var wizard = JSON.parse(shell.cat(source + "/wizard.json").toString());
     
-        var target = shell.env["HOME"] + "/.config/QtProject/qtcreator/templates/wizards/" +  sanitize(wizard.trDisplayName)
+        var target;
+        if (os.platform() === "win32") {
+            target = shell.env("APPDATA") + "/QtProject/qtcreator/templates/wizards" 
+        } else {
+            target = shell.env["HOME"] + "/.config/QtProject/qtcreator/templates/wizards/" +  sanitize(wizard.trDisplayName)
+        }
         generate(source, target);
     });
 
