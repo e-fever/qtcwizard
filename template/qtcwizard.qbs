@@ -2,9 +2,12 @@ import qbs
 import qbs.Environment
 
 Product {
+    name: "%WIZARD%"
+    
     Group {
         name: "all"
         files: "**"
+        excludeFiles: "./README.md"
         qbs.install: true
         qbs.installSourceBase: "."
         qbs.installRoot: {

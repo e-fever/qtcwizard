@@ -75,6 +75,7 @@ program
             console.log("Created " + target);
         }
     
+        shell.mkdir("-p", output);
         create(__dirname + "/template/qtcwizard.qbs", output);
         create(__dirname + "/template/README.md", output);
 
