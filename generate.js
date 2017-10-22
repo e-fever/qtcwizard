@@ -3,6 +3,13 @@ var shell = require('shelljs');
 const path = require('path');
 var prerequisite = require("./prerequisite.js");
 
+function mkdirAndCp(basePath, sourceFile, outputFolder) {
+    var basedSourceFile = path.resolve(basePath, sourceFile);
+    
+    shell.mkdir("-p", outputFolder + "/" + path.dirname(basedSourceFile));
+    shell.cp(sourceFile, outputFolder);
+}
+
 function run(input, output) {
     
     if (!prerequisite(input)) {
@@ -25,6 +32,7 @@ function run(input, output) {
     var basePath = path.resolve(input) + "/";
 
     var files = files.filter(function(file){
+        // Step 1 - Filter out files which should not be copied
 
         var source = file.replace(basePath, "");
 
@@ -36,7 +44,18 @@ function run(input, output) {
             return acc;
         }, { include: true} ).include;
         
+    }).filter(function(file) {
+        // Step 2 - process icon
+        if (generator.hasOwnProperty("icon")) {
+            var basename = path.relative(input, file);   
+            if (generator.icon === basename) {
+                mkdirAndCp(input, file, output);
+                return false;
+            }
+        }        
+        return true;
     }).map(function(file) {
+        // Process each file and return the properties for "generator" of this file
         var item = {
             source: file.replace(basePath, ""),
             content: shell.cat(file)
@@ -97,6 +116,10 @@ function run(input, output) {
             "data": files
         }
     ];
+    
+    if (generator.hasOwnProperty("icon")) {
+        wizard.icon = generator.icon;    
+    }
 
     shell.ShellString(JSON.stringify(wizard,null,4)).to(path.resolve(output, "wizard.json"));
     console.log("Exported to " + output);
