@@ -22,8 +22,8 @@ Example Usage
 
 Example Project
 
- 1. [junkcode/qt/templates/QPM Library Project at master · benlau/junkcode](https://github.com/benlau/junkcode/tree/master/qt/templates/QPM%20Library%20Project)
- 1. [junkcode/qtcwizard-project/project1 at master · benlau/junkcode](https://github.com/benlau/junkcode/tree/master/qtcwizard-project/project1)
+ 1. [e-fever-codebase/Qt-Quick-Unit-Test at master · e-fever/e-fever-codebase](https://github.com/e-fever/e-fever-codebase/tree/master/Qt-Quick-Unit-Test)
+ 1. [e-fever-codebase/Qt-Qml-Library-Project at master · e-fever/e-fever-codebase](https://github.com/e-fever/e-fever-codebase/tree/master/Qt-Qml-Library-Project)
 
 Installation
 ------------
