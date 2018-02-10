@@ -39,7 +39,7 @@ program
     
         var target;
         if (os.platform() === "win32") {
-            target = shell.env("APPDATA") + "/QtProject/qtcreator/templates/wizards" 
+            target = shell.env["APPDATA"] + "/QtProject/qtcreator/templates/wizards"
         } else {
             target = shell.env["HOME"] + "/.config/QtProject/qtcreator/templates/wizards/" +  sanitize(wizard.trDisplayName)
         }

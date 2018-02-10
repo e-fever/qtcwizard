@@ -28,7 +28,7 @@ Product {
 
                 function obtainInstallationPath() {
                     var res;
-                    if (qbs.targetOS == "windows") { // use "==" to compare qbs.targetOS
+                    if (product.qbs.hostOS.contains("windows")) {
                         res = Environment.getEnv("APPDATA") + "/QtProject/qtcreator/templates/wizards"
                     } else {
                         res = Environment.getEnv("HOME") + "/.config/QtProject/qtcreator/templates/wizards"
