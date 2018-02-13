@@ -57,7 +57,7 @@ function run(input, output) {
     }).map(function(file) {
         // Process each file and return the properties for "generator" of this file
         var item = {
-            source: file.replace(basePath, ""),
+            source:  path.relative(basePath, file),
             content: shell.cat(file)
         };
         
@@ -86,7 +86,7 @@ function run(input, output) {
             return item;            
         }, item);
         
-        var outputFile = path.resolve(output, item.target);
+        var outputFile = path.resolve(output, path.relative(input, item.source));
 
         var dirname = path.dirname(outputFile);
 
