@@ -28,13 +28,15 @@ Installation
     npm install -g
 ```
 
-Example
+Example Wizxard
 ------
 
 ```
     cd example
     qtcwizard install
 ```
+
+# Launch Qt Creator, choose  File > New File or Project > Application > QTCWizard Example
 
 
 Advanced Example Projects

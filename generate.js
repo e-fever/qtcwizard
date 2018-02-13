@@ -86,12 +86,12 @@ function run(input, output) {
             return item;            
         }, item);
         
-        var outputFile = path.resolve(output, item.source);
+        var outputFile = path.resolve(output, item.target);
 
         var dirname = path.dirname(outputFile);
 
         shell.mkdir("-p", dirname);
-
+        
         shell.ShellString(item.content).to(outputFile);
 
         var res = {
