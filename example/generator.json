@@ -1,0 +1,34 @@
+{
+    "ignoreFilePattern": [
+        "\\.swp$",
+        "\\.DS_Store$",
+	".pro.user$",
+	".qmlc$"
+    ],
+    "rules": [
+        {
+            "pattern": ".*",
+            "path": [
+                {
+                    "find": "PROJECT",
+                    "replace" : "%{ProjectName}"
+                }
+
+            ],
+            "content": [
+                {
+                    "find": "\\\\",
+                    "replace": "\\\\"
+                },
+                {
+                    "find": "PROJECT",
+                    "replace" : "%{ProjectName}"
+                }
+            ]
+        },
+        {
+            "pattern": "\\.pro$",
+            "openAsProject": true
+        }
+    ]
+}

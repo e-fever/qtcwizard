@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "kind": "project",
+    "id": "EF.Project.ie3ra",
+    "category": "QTCWizardExample",
+    "trDescription": "Creates a simple Qt Quick Test based unit test for a set of feature. Unit tests allow you to verify that the code is fit for use and that there have no regressions. It is provided by E-Fever Limited.",
+    "trDisplayName": "Qt Quick Unit Test (qtcwizard example)",
+    "trDisplayCategory": "QTCWizard Example",
+    "icon": "",
+    "enabled": "%{JS: [ %{Plugins} ].indexOf('QmakeProjectManager') >= 0}",
+    "options": [
+        {
+            "key": "QtQuickVersion",
+            "value": "%{JS: %{QtVersion}.qtQuickVersion}"
+        },
+        {
+            "key": "ProFileName",
+            "value": "%{JS: Util.fileName('%{ProjectDirectory}/%{ProjectName}', 'pro')}"
+        }
+    ],
+    "pages": [
+        {
+            "trDisplayName": "Project Location",
+            "trShortTitle": "Location",
+            "typeId": "Project"
+        },
+        {
+            "trDisplayName": "Project Management",
+            "trShortTitle": "Summary",
+            "typeId": "Summary"
+        }
+    ],
+    "generators": [
+        {
+            "typeId": "File",
+            "data": []
+        }
+    ]
+}

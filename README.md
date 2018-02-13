@@ -20,11 +20,6 @@ Example Usage
     
 ```
 
-Example Project
-
- 1. [e-fever-codebase/Qt-Quick-Unit-Test at master · e-fever/e-fever-codebase](https://github.com/e-fever/e-fever-codebase/tree/master/Qt-Quick-Unit-Test)
- 1. [e-fever-codebase/Qt-Qml-Library-Project at master · e-fever/e-fever-codebase](https://github.com/e-fever/e-fever-codebase/tree/master/Qt-Qml-Library-Project)
-
 Installation
 ------------
 
@@ -32,6 +27,22 @@ Installation
     cd qtcwizard
     npm install -g
 ```
+
+Example
+------
+
+```
+    cd example
+    qtcwizard install
+```
+
+
+Advanced Example Projects
+-----
+
+ 1. [e-fever-codebase/Qt-Quick-Unit-Test at master · e-fever/e-fever-codebase](https://github.com/e-fever/e-fever-codebase/tree/master/Qt-Quick-Unit-Test)
+ 1. [e-fever-codebase/Qt-Qml-Library-Project at master · e-fever/e-fever-codebase](https://github.com/e-fever/e-fever-codebase/tree/master/Qt-Qml-Library-Project)
+
 
 Commands
 ========
