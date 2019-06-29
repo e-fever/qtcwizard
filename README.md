@@ -11,13 +11,13 @@ Example Usage
     $ qtcwizard init
     generator.json created
     wizard.json created
-    
+
     # Edit generator.json and wizard.json for customization
-    
+
     $ qtcwizard install
-    
+
     # Launch Qt Creator, choose  File > New File or Project > Application > Example Project.
-    
+
 ```
 
 Installation
@@ -28,7 +28,7 @@ Installation
     npm install -g
 ```
 
-Example Wizxard
+Example Wizard
 ------
 
 ```

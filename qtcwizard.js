@@ -34,9 +34,9 @@ program
         if (!prerequisite(source)) {
             return -1;
         }
-    
+
         var wizard = JSON.parse(shell.cat(source + "/wizard.json").toString());
-    
+
         var target;
         if (os.platform() === "win32") {
             target = shell.env["APPDATA"] + "/QtProject/qtcreator/templates/wizards/" +  sanitize(wizard.trDisplayName)
@@ -58,28 +58,31 @@ program
         if (!prerequisite(source)) {
             return -1;
         }
-    
+
         var wizard = JSON.parse(shell.cat(source + "/wizard.json").toString());
         var projectName = sanitize(wizard.trDisplayName);
         var target = output + "/" + projectName;
 
         function create(src, dst) {
             var target = dst + "/" + path.basename(src)
-            
+
             if (shell.test("-f", target)){
                 console.log("Skip " + target);
                 return;
             }
-            
+
             var content = shell.cat(src).toString();
             content = content.replace(new RegExp("%WIZARD%","g"), projectName);
-            shell.ShellString(content).to(target);                                                  
+            shell.ShellString(content).to(target);
             console.log("Created " + target);
         }
-    
+
         shell.mkdir("-p", output);
         create(__dirname + "/template/qtcwizard.qbs", output);
+        create(__dirname + "/template/install.sh", output);
         create(__dirname + "/template/README.md", output);
+
+        shell.chmod("u+x", output + "/install.sh");
 
         generate(source, target);
     });
